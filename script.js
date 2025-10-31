@@ -34,7 +34,7 @@ function getHumanChoice(){
         return fixed;
     }
     else{
-        console.log('Please choose among Rock, Paper, Scissors')
+        console.log('Please choose among Rock, Paper, Scissors');
     };
 }
 // getHumanChoice()
@@ -71,9 +71,17 @@ function playRound(humanChoice, computerChoice){
     };
 }
 
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
-playRound(humanSelection, computerSelection);
-console.log("Computer chose " + computerSelection)
-console.log(human)
-console.log(computer)
+function playGame(){
+    let humanSelection = getHumanChoice();
+    let computerSelection = getComputerChoice();
+    playRound(humanSelection, computerSelection);
+    console.log("Computer chose " + computerSelection);
+    console.log(human);
+    console.log(computer);
+}
+//For playing game 5 times
+playGame()
+playGame()
+playGame()
+playGame()
+playGame()
