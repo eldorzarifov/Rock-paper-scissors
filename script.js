@@ -1,5 +1,9 @@
-computer = 0
-human = 0
+let computer = 0
+let human = 0
+const scores = document.createElement("div")
+const compScore = document.createElement("p")
+const humanScore = document.createElement("p")
+const winner = document.createElement("p")
 const rock = document.getElementById("rock");
 const paper = document.getElementById("paper");
 const scissors = document.getElementById("scissors")
@@ -20,6 +24,9 @@ function getComputerChoice(){
     };
 }
 // console.log(getComputerChoice())
+winner.textContent = ``
+compScore.textContent = `Computer: ${computer}`;
+humanScore.textContent = `You: ${human}`;
 
 // //Function for playing a round, it takes choices and finds the winner and adds 1 to their score
 function playRound(humanChoice, computerChoice){
@@ -34,12 +41,33 @@ function playRound(humanChoice, computerChoice){
         (humanChoice === "scissors" && computerChoice === "paper")
     ) {
         human++;
+        compScore.textContent = `Computer: ${computer}`;
+        humanScore.textContent =   `You: ${human}`;
         console.log(`${humanChoice} beats ${computerChoice}, You win!`);
     } else {
         computer++;
+        compScore.textContent = `Computer: ${computer}`;
+        humanScore.textContent =   `You: ${human}`;
         console.log(`${computerChoice} beats ${humanChoice}, You lose!`);
-    }    
+    }
+    
+    if(computer === 5){
+        winner.textContent = `AI is gonna enslave humans`;
+        human = 0;
+        computer =0;
+    }
+    if(human === 5){
+        winner.textContent = `Humans resist robots`;
+        human = 0;
+        computer =0;
+    }
 }
+
+
+scores.appendChild(compScore);
+scores.appendChild(humanScore);
+scores.appendChild(winner)
+document.body.appendChild(scores);
 
 rock.addEventListener("click", () => {playRound("rock",getComputerChoice())});
 paper.addEventListener("click", () => {playRound("paper",getComputerChoice())});
